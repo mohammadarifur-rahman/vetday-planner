@@ -1,0 +1,11 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+data/vetday.db
+data/vetday.db-*
+data/raw/*.html
+.DS_Store
+.claude/settings.local.json

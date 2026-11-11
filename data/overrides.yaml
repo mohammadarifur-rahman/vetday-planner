@@ -1,0 +1,46 @@
+# Hand corrections. These win over every rule and the LLM.
+# Use brand names as written on the source sites; they are normalized on load
+# (see vetday.classify.brand_key). `uv run python -m vetday.pipeline status --keys`
+# lists the current brands.
+
+# Same brand, different spelling across sources -> one brand.
+brand_aliases:
+  Army & Air Force Exchange Service: AAFES
+  Bubbakoo’s Burritos: Bubbakoo’s
+  Casey’s General Store: Casey’s
+  In-N-Out Burger: In-N-Out
+  Paisano’s Pizza: Paisano’s
+
+display_names:
+  H oss’s Steak and Sea House: Hoss’s Steak and Sea House
+  AAFES: Army & Air Force Exchange (AAFES)
+  In-N-Out: In-N-Out Burger
+
+# Category corrections (the VA list files AAFES under Restaurants).
+categories:
+  AAFES: Retail & Grocery
+  Wash Bodega: Retail & Grocery
+  4Patriots: Online/Other
+  AARP: Online/Other
+  Wayski: Online/Other
+  American Forces Travel: Online/Other
+
+# Meal-slot corrections (checked against the 2026 offer text).
+meal_slots:
+  Hy-Vee: [breakfast]                    # free breakfast 6-10 a.m.
+  Einstein Bros. Bagels: [breakfast]     # coffee + bagel
+  IHOP: [breakfast]                      # pancake combo, served 7 a.m.-7 p.m.
+  Huddle House: [breakfast]              # free French toast
+  Pilot Flying J: [breakfast, lunch]     # breakfast or lunch item
+  White Castle: [breakfast, lunch, dinner]  # combo meal or breakfast combo
+  Hot Dog on a Stick: [coffee_snack]     # free lemonade only
+  Sheetz: [lunch, dinner]                # half turkey sub + drink
+
+# Hours corrections; null clears hours that belong to a side event.
+time_windows:
+  Prince St. Pizza: null   # 11-1 is only the Brooklyn cast pop-up, not the free slice
+
+location_based: {}
+
+# Brands to drop entirely.
+exclusions: []
